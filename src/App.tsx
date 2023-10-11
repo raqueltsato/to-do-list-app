@@ -1,9 +1,7 @@
+import Home from "./screens/Home";
+
 function App() {
-  return (
-    <>
-      <p>Teste</p>
-    </>
-  );
+  return <Home />;
 }
 
 export default App;
