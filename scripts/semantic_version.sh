@@ -13,7 +13,12 @@ function get_semantic_version {
         "https://api.github.com/repos/${SEMANTIC_VERSION_GITHUB_OWNER}/${repo}/pulls?state=closed&sort=updated&direction=desc&page=1&per_page=1")
 
 
-    labels_names=$(echo "$response" | jq -r '.[0].labels[].name')
+    if [[ $(echo "$response" | jq '.[0].labels | length') -gt 0 ]]; then
+        labels_names=$(echo "$response" | jq -r '.[0].labels[].name')
+        echo "Labels found: $labels_names"
+    else
+        echo "Labels not found."
+    fi
 
     echo "${response}"
     if [[ "$labels_names" == *"major"* ]]; then
