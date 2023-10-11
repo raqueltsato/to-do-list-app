@@ -8,15 +8,14 @@ function get_semantic_version {
 
     response=$(curl -sL \
         -H "Accept: application/vnd.github.v3+json" \
-        -H "Authorization: Bearer ${TO_DO_LIST_TOKEN}" \
+        -H "Authorization: Bearer ${GITHUB_API_TOKEN}" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
         "https://api.github.com/repos/${SEMANTIC_VERSION_GITHUB_OWNER}/${repo}/pulls?state=closed&sort=updated&direction=desc&page=1&per_page=1")
 
+
+    abels_names=$(echo "$response" | jq -r '.[0].labels[].name')
+
     echo "${response}"
-    echo "${SEMANTIC_VERSION_GITHUB_OWNER}"
-
-    # labels_names=$(echo "$response" | jq -r '.[0].labels[].name')
-
     if [[ "$labels_names" == *"major"* ]]; then
         version_mode="major"
     elif [[ "$labels_names" == *"minor"* ]]; then
