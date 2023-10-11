@@ -32,5 +32,5 @@ jobs:
         run: yarn semantic:version
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TO_DO_LIST_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SEMANTIC_VERSION_GITHUB_OWNER: ${{ secrets.SEMANTIC_VERSION_GITHUB_OWNER }}
