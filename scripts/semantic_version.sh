@@ -12,6 +12,8 @@ function get_semantic_version {
         -H "X-GitHub-Api-Version: 2022-11-28" \
         "https://api.github.com/repos/${SEMANTIC_VERSION_GITHUB_OWNER}/${repo}/pulls?state=closed&sort=updated&direction=desc&page=1&per_page=1")
 
+    echo "$response"
+
     labels_names=$(echo "$response" | jq -r '.[0].labels[].name')
 
     if [[ "$labels_names" == *"major"* ]]; then
