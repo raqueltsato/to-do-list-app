@@ -12,11 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-
       - name: "Configure git"
         run: |
           git config --global user.email ${{ secrets.SEMANTIC_VERSION_GITHUB_EMAIL }}
@@ -38,6 +33,4 @@ jobs:
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SEMANTIC_VERSION_GITHUB_EMAIL: ${{ secrets.SEMANTIC_VERSION_GITHUB_EMAIL }}
           SEMANTIC_VERSION_GITHUB_OWNER: ${{ secrets.SEMANTIC_VERSION_GITHUB_OWNER }}
-          SEMANTIC_VERSION_GITHUB_OWNER_NAME: ${{ secrets.SEMANTIC_VERSION_GITHUB_OWNER_NAME }}
