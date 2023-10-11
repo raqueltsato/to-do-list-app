@@ -34,3 +34,7 @@ echo "Generating version..."
 echo "Labels: ${labels_names}"
 npm version $version_mode
 echo "Version generated $version_mode."
+
+git add .
+git commit -m "v$new_version"
+git push origin main
