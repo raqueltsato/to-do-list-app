@@ -18,7 +18,7 @@ jobs:
           node-version: 14
 
       - name: "Configure git"
-        run: "git config --global user.email ${{SEMANTIC_VERSION_GITHUB_EMAIL}} && git config --global user.name ${{SEMANTIC_VERSION_GITHUB_OWNER_NAME}}"
+        run: "git config --global user.email ${{env.SEMANTIC_VERSION_GITHUB_EMAIL}} && git config --global user.name ${{env.SEMANTIC_VERSION_GITHUB_OWNER_NAME}}"
 
       - name: Cache Yarn Dependencies
         uses: actions/cache@v2
