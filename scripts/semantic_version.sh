@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-# Definindo o modo padrão da versão
+function git_last_message {
+  echo $(git log -1 --pretty=format:'%s')
+}
+
+last_message=$(git_last_message)
 version_mode="patch"
 
 function get_semantic_version {
@@ -28,9 +32,18 @@ function get_semantic_version {
     fi
 }
 
-get_semantic_version
+if [[ "$last_message" =~ ^([0-9]+\.){2}[0-9]+$ ]]; then
+    echo "Last commit was a version generation commit, not generating again."
+else
+    get_semantic_version
 
-echo "Generating version..."
-echo "Labels: ${labels_names}"
-npm version $version_mode
-echo "Version generated $version_mode."
+    echo "Generating version..."
+    echo "Labels: ${labels_names}"
+    npm version $version_mode
+    echo "Version generated $version_mode."
+
+    git add .
+    git commit -m "v$new_version"
+    git push origin main
+fi
+
