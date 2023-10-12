@@ -24,7 +24,6 @@ function get_semantic_version {
         echo "Labels not found."
     fi
 
-    echo "${response}"
     if [[ "$labels_names" == *"major"* ]]; then
         version_mode="major"
     elif [[ "$labels_names" == *"minor"* ]]; then
@@ -45,7 +44,7 @@ else
     version=`node -p "require('./package.json').version"`
 
     git add .
-    git commit -m "v$version"
+    git commit -m `"v"$version`
     git push origin main
 fi
 
