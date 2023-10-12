@@ -45,7 +45,7 @@ else
 
     echo $version
     git add .
-    git commit -m $version
+    git commit -m "$version"
     git push origin main
 fi
 
