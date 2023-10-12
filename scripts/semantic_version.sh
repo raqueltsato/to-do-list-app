@@ -41,10 +41,11 @@ else
     npm version $version_mode
     echo "Version generated $version_mode."
 
-    version=`node -p "require('./package.json').version"`
+    version="v`node -p "require('./package.json').version"`"
 
+    echo $version
     git add .
-    git commit -m `"v"$version`
+    git commit -m $version
     git push origin main
 fi
 
