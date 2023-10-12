@@ -16,6 +16,7 @@ jobs:
         run: |
           git config --global user.email ${{ secrets.SEMANTIC_VERSION_GITHUB_EMAIL }}
           git config --global user.name ${{ secrets.SEMANTIC_VERSION_GITHUB_OWNER_NAME }}
+          git config --global init.defaultBranch main
 
       - name: Cache Yarn Dependencies
         uses: actions/cache@v2
