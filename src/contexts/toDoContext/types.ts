@@ -11,5 +11,6 @@ export type ToDoType = {
 
 export interface ToDoContextType {
   toDos: ToDoType[];
-  setToDos: React.Dispatch<React.SetStateAction<ToDoType[]>>;
+  handleDoneToDo: (id: string) => void;
+  handleRemoveToDo: (id: string) => void;
 }

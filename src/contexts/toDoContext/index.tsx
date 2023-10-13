@@ -9,8 +9,24 @@ export const ToDoContext = createContext<ToDoContextType>(
 export const ToDoProvider = ({ children }: OwnProps) => {
   const [toDos, setToDos] = useState<ToDoType[]>(toDosMock);
 
+  const handleDoneToDo = (id: string) => {
+    const newTodos = toDos.map((toDo) => {
+      if (toDo.id === id) {
+        return { ...toDo, done: !toDo.done };
+      } else {
+        return toDo;
+      }
+    });
+    setToDos(newTodos);
+  };
+
+  const handleRemoveToDo = (toDoId: string) => {
+    const newTodos = toDos.filter(({ id }) => id !== toDoId);
+    setToDos(newTodos);
+  };
+
   return (
-    <ToDoContext.Provider value={{ toDos, setToDos }}>
+    <ToDoContext.Provider value={{ toDos, handleDoneToDo, handleRemoveToDo }}>
       {children}
     </ToDoContext.Provider>
   );
