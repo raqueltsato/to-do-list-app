@@ -2,13 +2,14 @@ export type OwnProps = {
   children: React.ReactNode;
 };
 
-export type ToDo = {
+export type ToDoType = {
   id: string;
   description: string;
-  date: string;
+  dueToDate: string;
+  done: boolean;
 };
 
 export interface ToDoContextType {
-  toDos: ToDo[];
-  setToDos: React.Dispatch<React.SetStateAction<ToDo[]>>;
+  toDos: ToDoType[];
+  setToDos: React.Dispatch<React.SetStateAction<ToDoType[]>>;
 }
