@@ -80,4 +80,5 @@ export const TrashIcon = styled(FaTrashAlt)`
     color: ${colors.purple};
   `}
   height:25px;
+  cursor: pointer;
 `;
