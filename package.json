@@ -11,8 +11,10 @@
     "semantic:version": "cross-env scripts/./semantic_version.sh"
   },
   "dependencies": {
+    "date-fns": "^2.30.0",
     "i18next": "^23.5.1",
     "react": "^18.2.0",
+    "react-datepicker": "^4.20.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.3.0",
     "react-icons": "^4.11.0",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
+    "@types/react-datepicker": "^4.19.0",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
