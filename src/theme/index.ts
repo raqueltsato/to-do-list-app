@@ -7,10 +7,13 @@ declare module "styled-components/" {
       ice: string;
       black: string;
       gray: string;
+      grayTransparent: string;
       white: string;
       pink: string;
       lavander: string;
+      babyBlue: string;
       purple: string;
+      purpleDark: string;
     };
     font: {
       sm: string;
@@ -25,6 +28,7 @@ declare module "styled-components/" {
       sm: string;
       md: string;
       lg: string;
+      circle: string;
     };
   }
 }
@@ -35,10 +39,13 @@ const theme: DefaultTheme = {
     ice: "#edeceb",
     black: "#333333",
     gray: "#666666",
+    grayTransparent: "#666666cc",
     white: "#ffffff",
     pink: "#ffcad4",
     lavander: "#9dd2d8",
+    babyBlue: " #f1f7fc",
     purple: "#aa8df7",
+    purpleDark: "#b289f3",
   },
   font: {
     sm: "12px",
@@ -53,6 +60,7 @@ const theme: DefaultTheme = {
     sm: "2px",
     md: "4px",
     lg: "8px",
+    circle: "50%",
   },
 };
 
