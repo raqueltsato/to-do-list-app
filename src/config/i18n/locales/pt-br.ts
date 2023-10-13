@@ -1,5 +1,9 @@
 export default {
   form: {
-    title: "Tela de Cadastro de To Do",
+    title: "Cadastre sua tarefa",
+    description: "Descrição da tarefa",
+    dueToDate: "Finalizar até",
+    dateFormat: "dd/MM/yyyy",
+    submit: "Cadastrar",
   },
 };
