@@ -38,7 +38,7 @@ export const Checkbox = styled.span`
   width: 25px;
 `;
 
-export const Checkmark = styled.div<{ checked: boolean }>`
+export const Checkmark = styled.button<{ checked: boolean }>`
   ${({ theme: { colors, radius }, checked }) => css`
     display: ${checked ? "block" : "none"};
     border: solid ${colors.purple};
@@ -51,7 +51,7 @@ export const Checkmark = styled.div<{ checked: boolean }>`
   right: 0;
   width: 10px;
   height: 14px;
-
+  background-color: unset;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 `;
