@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components/";
 import { FaPlus } from "react-icons/fa";
 
-export const Button = styled.button`
-  ${({ theme: { colors, radius } }) => css`
+export const Button = styled.button<{ isRound: boolean }>`
+  ${({ theme: { colors, radius }, isRound }) => css`
     border: none;
-    border-radius: ${radius.circle};
+    border-radius: ${isRound ? radius.circle : radius.md};
     background-color: ${colors.purple};
     padding: 12px;
     cursor: pointer;
@@ -24,4 +24,11 @@ export const AddIcon = styled(FaPlus)`
   `}
   height: 40px;
   width: 40px;
+`;
+
+export const Title = styled.p`
+  ${({ theme: { colors, font } }) => css`
+    color: ${colors.white};
+    font-size: ${font.md};
+  `}
 `;

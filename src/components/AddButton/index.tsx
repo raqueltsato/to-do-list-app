@@ -1,10 +1,10 @@
-import { AddIcon, Button } from "./styles";
+import { AddIcon, Button, Title } from "./styles";
 import { OwnProps } from "./types";
 
-const AddButton = ({ onClick }: OwnProps): React.ReactNode => {
+const AddButton = ({ name, onClick }: OwnProps): React.ReactNode => {
   return (
-    <Button onClick={onClick}>
-      <AddIcon />
+    <Button onClick={onClick} isRound={!name}>
+      {name ? <Title>{name}</Title> : <AddIcon />}
     </Button>
   );
 };
