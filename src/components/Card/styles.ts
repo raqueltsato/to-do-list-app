@@ -38,9 +38,9 @@ export const Checkbox = styled.span`
   width: 25px;
 `;
 
-export const Checkmark = styled.div`
-  ${({ theme: { colors, radius }, disabled }) => css`
-    display: ${disabled ? "none" : "block"};
+export const Checkmark = styled.div<{ checked: boolean }>`
+  ${({ theme: { colors, radius }, checked }) => css`
+    display: ${checked ? "block" : "none"};
     border: solid ${colors.purple};
     border-radius: ${radius.sm};
   `}

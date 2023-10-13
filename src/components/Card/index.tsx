@@ -1,3 +1,4 @@
+import { ToDoType } from "../../contexts/toDoContext/types";
 import {
   CardContainer,
   Checkbox,
@@ -7,17 +8,20 @@ import {
   Title,
   TrashIcon,
 } from "./styles";
+import { OwnProps } from "./types";
 
-const Card = (): JSX.Element => {
+const Card = ({
+  toDo: { id, description, dueToDate, done },
+}: OwnProps): JSX.Element => {
   return (
     <CardContainer>
       <CheckboxContainer>
         <Checkbox className="checkmark">
-          <Checkmark disabled={false} />
+          <Checkmark checked={done} />
         </Checkbox>
       </CheckboxContainer>
-      <Title>Comer chocolate</Title>
-      <DueToDateTag>15/10/2023</DueToDateTag>
+      <Title>{description}</Title>
+      <DueToDateTag>{dueToDate}</DueToDateTag>
       <TrashIcon />
     </CardContainer>
   );

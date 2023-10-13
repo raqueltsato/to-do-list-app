@@ -2,6 +2,7 @@ import { useState } from "react";
 import AddButton from "../../components/AddButton";
 import { ToDoModal } from "../../components/ToDoForm";
 import { Background, ButtonContainer, Container } from "./styles";
+import { ToDoList } from "../../components/ToDoList";
 
 const Home = (): React.ReactNode => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,6 +18,7 @@ const Home = (): React.ReactNode => {
     <>
       <Background />
       <Container>
+        <ToDoList />
         <ToDoModal isOpen={isModalOpen} onClose={handleCloseModal} />
 
         <ButtonContainer>
