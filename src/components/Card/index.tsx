@@ -12,6 +12,7 @@ import { OwnProps } from "./types";
 const Card = ({
   toDo: { id, description, dueToDate, done },
   handleDoneToDo,
+  handleRemoveToDo,
 }: OwnProps): JSX.Element => {
   return (
     <CardContainer>
@@ -22,7 +23,7 @@ const Card = ({
       </CheckboxContainer>
       <Title>{description}</Title>
       <DueToDateTag>{dueToDate}</DueToDateTag>
-      <TrashIcon />
+      <TrashIcon onClick={() => handleRemoveToDo(id)} />
     </CardContainer>
   );
 };

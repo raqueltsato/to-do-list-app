@@ -20,10 +20,13 @@ export const ToDoProvider = ({ children }: OwnProps) => {
     setToDos(newTodos);
   };
 
-  console.log("Todos:: ", JSON.stringify(toDos, null, 2));
+  const handleRemoveToDo = (toDoId: string) => {
+    const newTodos = toDos.filter(({ id }) => id !== toDoId);
+    setToDos(newTodos);
+  };
 
   return (
-    <ToDoContext.Provider value={{ toDos, handleDoneToDo }}>
+    <ToDoContext.Provider value={{ toDos, handleDoneToDo, handleRemoveToDo }}>
       {children}
     </ToDoContext.Provider>
   );

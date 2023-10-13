@@ -12,4 +12,5 @@ export type ToDoType = {
 export interface ToDoContextType {
   toDos: ToDoType[];
   handleDoneToDo: (id: string) => void;
+  handleRemoveToDo: (id: string) => void;
 }
