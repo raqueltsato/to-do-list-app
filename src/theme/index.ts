@@ -11,6 +11,7 @@ declare module "styled-components/" {
       pink: string;
       lavander: string;
       purple: string;
+      purpleDark: string;
     };
     font: {
       sm: string;
@@ -25,6 +26,7 @@ declare module "styled-components/" {
       sm: string;
       md: string;
       lg: string;
+      circle: string;
     };
   }
 }
@@ -39,6 +41,7 @@ const theme: DefaultTheme = {
     pink: "#ffcad4",
     lavander: "#9dd2d8",
     purple: "#aa8df7",
+    purpleDark: "#b289f3",
   },
   font: {
     sm: "12px",
@@ -53,6 +56,7 @@ const theme: DefaultTheme = {
     sm: "2px",
     md: "4px",
     lg: "8px",
+    circle: "50%",
   },
 };
 
