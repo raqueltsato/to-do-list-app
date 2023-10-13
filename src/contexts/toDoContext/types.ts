@@ -3,6 +3,7 @@ export type OwnProps = {
 };
 
 export type ToDo = {
+  id: string;
   description: string;
   date: string;
 };
