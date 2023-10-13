@@ -1,9 +1,15 @@
 import styled, { css } from "styled-components/";
 
-export const Container = styled.div`
+export const Background = styled.div`
   ${({ theme: { colors } }) => css`
     background: linear-gradient(45deg, ${colors.pink}, ${colors.lavander});
+    position: absolute;
+    inset: 0;
+    z-index: -1;
   `};
+`;
+
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
