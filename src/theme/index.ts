@@ -19,11 +19,6 @@ declare module "styled-components/" {
       sm: string;
       md: string;
     };
-    space: {
-      sm: string;
-      md: string;
-      lg: string;
-    };
     radius: {
       sm: string;
       md: string;
@@ -41,8 +36,8 @@ const theme: DefaultTheme = {
     gray: "#666666",
     grayTransparent: "#666666cc",
     white: "#ffffff",
-    pink: "#ffcad4",
-    lavander: "#9dd2d8",
+    pink: "#ffe5ea",
+    lavander: "#e8f8ff",
     babyBlue: " #f1f7fc",
     purple: "#aa8df7",
     purpleDark: "#b289f3",
@@ -50,11 +45,6 @@ const theme: DefaultTheme = {
   font: {
     sm: "12px",
     md: "16px",
-  },
-  space: {
-    sm: "16px",
-    md: "20px",
-    lg: "24px",
   },
   radius: {
     sm: "2px",
