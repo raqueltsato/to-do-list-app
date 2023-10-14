@@ -5,7 +5,7 @@ export type OwnProps = {
 export type ToDoType = {
   id: string;
   description: string;
-  dueToDate: string;
+  dueToDate: number;
   done: boolean;
 };
 
@@ -13,4 +13,5 @@ export interface ToDoContextType {
   toDos: ToDoType[];
   handleDoneToDo: (id: string) => void;
   handleRemoveToDo: (id: string) => void;
+  handleAddToDo: (description: string, dueToDate: number) => void;
 }
