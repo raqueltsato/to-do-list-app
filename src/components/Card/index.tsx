@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import {
   CardContainer,
   Checkbox,
@@ -17,7 +16,6 @@ const CardDefault = ({
   handleRemoveToDo,
   t,
 }: OwnProps): JSX.Element => {
-  console.log("Renderizou o card", description, Date.now());
   return (
     <CardContainer key={id}>
       <CheckboxContainer>
