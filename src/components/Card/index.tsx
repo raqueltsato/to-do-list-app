@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   CardContainer,
   Checkbox,
@@ -14,15 +15,18 @@ const Card = ({
   handleDoneToDo,
   handleRemoveToDo,
 }: OwnProps): JSX.Element => {
+  const { t } = useTranslation("locale");
   return (
-    <CardContainer>
+    <CardContainer key={id}>
       <CheckboxContainer>
         <Checkbox className="checkmark">
           <Checkmark checked={done} onClick={() => handleDoneToDo(id)} />
         </Checkbox>
       </CheckboxContainer>
       <Title>{description}</Title>
-      <DueToDateTag>{dueToDate}</DueToDateTag>
+      <DueToDateTag>
+        {new Date(dueToDate).toLocaleDateString(t("dateLocale"))}
+      </DueToDateTag>
       <TrashIcon onClick={() => handleRemoveToDo(id)} />
     </CardContainer>
   );

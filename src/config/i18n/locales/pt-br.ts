@@ -6,4 +6,7 @@ export default {
     dateFormat: "dd/MM/yyyy",
     submit: "Cadastrar",
   },
+  locale: {
+    dateLocale: "pt-br",
+  },
 };

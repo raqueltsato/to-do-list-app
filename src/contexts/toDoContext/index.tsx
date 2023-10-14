@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { v4 as uuid } from "uuid";
 import { OwnProps, ToDoType, ToDoContextType } from "./types";
 import { toDosMock } from "../../data";
 
@@ -25,8 +26,20 @@ export const ToDoProvider = ({ children }: OwnProps) => {
     setToDos(newTodos);
   };
 
+  const handleAddToDo = (description: string, dueToDate: number) => {
+    const newToDo = {
+      id: uuid(),
+      description,
+      dueToDate,
+      done: false,
+    };
+    setToDos([...toDos, newToDo]);
+  };
+
   return (
-    <ToDoContext.Provider value={{ toDos, handleDoneToDo, handleRemoveToDo }}>
+    <ToDoContext.Provider
+      value={{ toDos, handleDoneToDo, handleRemoveToDo, handleAddToDo }}
+    >
       {children}
     </ToDoContext.Provider>
   );

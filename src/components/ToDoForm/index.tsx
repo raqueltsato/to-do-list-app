@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import DatePicker, { registerLocale } from "react-datepicker";
@@ -17,11 +17,20 @@ import {
 } from "./styles";
 import { OwnProps } from "./types";
 import AddButton from "../AddButton";
+import { ToDoContext } from "../../contexts/toDoContext";
 
 registerLocale("ptBR", ptBR);
 
 export const ToDoModal = ({ isOpen, onClose }: OwnProps) => {
-  const [dueToDate, setDueToDate] = useState<Date | null>(new Date());
+  const { handleAddToDo } = useContext(ToDoContext);
+
+  const [dueToDate, setDueToDate] = useState<number>(Date.now());
+  const [description, setDescription] = useState("");
+
+  const handleSubmit = () => {
+    handleAddToDo(description, dueToDate);
+    setDescription("");
+  };
 
   const { t } = useTranslation("form");
   return (
@@ -36,15 +45,18 @@ export const ToDoModal = ({ isOpen, onClose }: OwnProps) => {
           <DateWrapper>
             <DatePicker
               locale="ptBR"
-              selected={dueToDate}
-              onChange={(date) => setDueToDate(date)}
+              selected={new Date(dueToDate)}
+              onChange={(date: Date) => setDueToDate(date.getTime())}
               dateFormat={t("dateFormat")}
             />
           </DateWrapper>
           <Label>{t("description")}</Label>
-          <Input />
+          <Input
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
         </InputWrapperContainer>
-        <AddButton name={t("submit")} onClick={console.log} />
+        <AddButton name={t("submit")} onClick={handleSubmit} />
       </ModalContent>
     </ModalContainer>
   );
