@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components/";
 import { FaPlus } from "react-icons/fa";
 
-export const Button = styled.button<{ isRound: boolean }>`
-  ${({ theme: { colors, radius }, isRound }) => css`
+export const Button = styled.button<{ "data-isround": boolean }>`
+  ${({ theme: { colors, radius }, "data-isround": isRound }) => css`
     border: none;
     border-radius: ${isRound ? radius.circle : radius.md};
     background-color: ${colors.purple};

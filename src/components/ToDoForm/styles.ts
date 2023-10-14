@@ -1,8 +1,8 @@
 import styled from "styled-components/";
 import { OwnProps } from "./types";
 
-export const ModalContainer = styled.div<{ isOpen: OwnProps["isOpen"] }>`
-  ${({ theme: { colors }, isOpen }) => `
+export const ModalContainer = styled.div<{ "data-isopen": OwnProps["isOpen"] }>`
+  ${({ theme: { colors }, "data-isopen": isOpen }) => `
     display: ${isOpen ? "block" : "none"};
     background: ${colors.grayTransparent};
   `}

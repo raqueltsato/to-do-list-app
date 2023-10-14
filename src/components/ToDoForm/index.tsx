@@ -39,7 +39,7 @@ export const ToDoModal = ({ isOpen, onClose }: OwnProps) => {
 
   const { t } = useTranslation("form");
   return (
-    <ModalContainer isOpen={isOpen}>
+    <ModalContainer data-isopen={isOpen}>
       <ModalContent>
         <CloseButton onClick={handleCloseModal}>
           <FaRegTimesCircle />

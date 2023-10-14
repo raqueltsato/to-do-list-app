@@ -9,13 +9,15 @@ import {
   TrashIcon,
 } from "./styles";
 import { OwnProps } from "./types";
+import React from "react";
 
-const Card = ({
+const CardDefault = ({
   toDo: { id, description, dueToDate, done },
   handleDoneToDo,
   handleRemoveToDo,
+  t,
 }: OwnProps): JSX.Element => {
-  const { t } = useTranslation("locale");
+  console.log("Renderizou o card", description, Date.now());
   return (
     <CardContainer key={id}>
       <CheckboxContainer>
@@ -32,4 +34,6 @@ const Card = ({
   );
 };
 
-export default Card;
+export const Card = React.memo(CardDefault, (prev, next) => {
+  return Object.is(prev.toDo, next.toDo);
+});
