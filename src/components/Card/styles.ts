@@ -1,45 +1,43 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { FaTrashAlt } from "react-icons/fa";
 
 export const CardContainer = styled.div`
-  ${({ theme: { colors, radius } }) => css`
+  ${({ theme: { colors, radius } }) => `
     background-color: ${colors.white};
     box-shadow: 0px 0px 8px 0px ${colors.shadow};
     border-radius: ${radius.lg};
   `}
   width: 700px;
-  display: flex;
-  padding: 12px;
-  justify-content: space-between;
-  margin: 8px;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  padding: 20px 12px;
+  margin: 16px;
 `;
 
-export const CheckboxContainer = styled.label`
-  display: block;
+export const CheckboxContainer = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
   padding-left: 35px;
-  margin-bottom: 12px;
+
   cursor: pointer;
-  font-size: 22px;
+
+  width: 0;
 `;
 
 export const Checkbox = styled.span`
-  ${({ theme: { colors, radius } }) => css`
+  ${({ theme: { colors, radius } }) => `
     background-color: ${colors.white};
     border: 2px solid ${colors.purple};
     border-radius: ${radius.md};
   `}
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
   height: 25px;
   width: 25px;
 `;
 
 export const Checkmark = styled.button<{ checked: boolean }>`
-  ${({ theme: { colors, radius }, checked }) => css`
+  ${({ theme: { colors, radius }, checked }) => `
     display: ${checked ? "block" : "none"};
     border: solid ${colors.purple};
     border-radius: ${radius.sm};
@@ -56,29 +54,47 @@ export const Checkmark = styled.button<{ checked: boolean }>`
   transform: rotate(45deg);
 `;
 
-export const Title = styled.h2`
-  ${({ theme: { colors, font } }) => css`
-    color: ${colors.purple};
-    font-size: ${font.md};
-  `}
-  padding-right: 8px;
+export const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export const DueToDateTag = styled.div`
-  ${({ theme: { colors, font, radius } }) => css`
+export const Title = styled.h2`
+  ${({ theme: { colors, font } }) => `
+    color: ${colors.purple};
+    font-size: ${font.md};
+    margin-right: 20px;
+  `}
+`;
+
+export const DueToDateTag = styled.label`
+  ${({ theme: { colors, font, radius } }) => `
     background-color: ${colors.ice};
     border-radius: ${radius.md};
-    padding: 4px;
     font-size: ${font.sm};
     color: ${colors.purple};
     font-weight: bold;
+    padding: 16px 8px;
+    margin-right: 12px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    
   `}
 `;
 
+export const Options = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const TrashIcon = styled(FaTrashAlt)`
-  ${({ theme: { colors } }) => css`
+  ${({ theme: { colors } }) => `
     color: ${colors.purple};
   `}
-  height:25px;
+  height:30px;
   cursor: pointer;
 `;
