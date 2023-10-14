@@ -1,6 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { OwnProps, ToDoType, ToDoContextType } from "./types";
+import { useDebounce } from "../../hooks";
 
 export const ToDoContext = createContext<ToDoContextType>(
   {} as ToDoContextType
@@ -10,6 +11,10 @@ export const ToDoProvider = ({ children }: OwnProps) => {
   const [toDos, setToDos] = useState<ToDoType[]>(
     JSON.parse(localStorage.getItem("toDos") as string) || []
   );
+
+  useDebounce(() => {
+    localStorage.setItem("toDos", JSON.stringify(toDos));
+  });
 
   const handleDoneToDo = (id: string) => {
     const newTodos = toDos.map((toDo) => {
@@ -36,10 +41,6 @@ export const ToDoProvider = ({ children }: OwnProps) => {
     };
     setToDos([...toDos, newToDo]);
   };
-
-  useEffect(() => {
-    localStorage.setItem("toDos", JSON.stringify(toDos));
-  }, [toDos]);
 
   return (
     <ToDoContext.Provider
