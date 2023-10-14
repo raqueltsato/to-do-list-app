@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { FaTrashAlt } from "react-icons/fa";
 
 export const CardContainer = styled.div`
-  ${({ theme: { colors, radius } }) => `
+  ${({ theme: { colors, radius, space } }) => `
     background-color: ${colors.white};
-    box-shadow: 0px 0px 8px 0px ${colors.shadow};
+    box-shadow: 0px 0px ${space.xs2} 0px ${colors.shadow};
     border-radius: ${radius.lg};
+    padding: ${space.md} ${space.xs};
+    margin: ${space.xs2};
   `}
-  width: 65%;
+  width: 60%;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  padding: 20px 12px;
-  margin: 8px;
 
   @media (max-width: 768px) {
     width: 80%;
@@ -19,10 +19,12 @@ export const CardContainer = styled.div`
 `;
 
 export const CheckboxContainer = styled.div`
+  ${({ theme: { space } }) => `
+  padding-left: ${space.xl2};
+`}
   position: relative;
   display: flex;
   align-items: center;
-  padding-left: 35px;
   cursor: pointer;
   width: 0;
 
@@ -32,14 +34,18 @@ export const CheckboxContainer = styled.div`
 `;
 
 export const Checkbox = styled.span`
-  ${({ theme: { colors, radius } }) => `
+  ${({ theme: { colors, radius, space } }) => `
     background-color: ${colors.white};
     border: 2px solid ${colors.purple};
     border-radius: ${radius.md};
-  `}
-  position: absolute;
-  height: 25px;
-  width: 25px;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    
+    @media (max-width: 768px) {
+      margin-left: ${space.xs2};
+    }
+    `}
 `;
 
 export const Checkmark = styled.button<{ checked: boolean }>`
@@ -73,26 +79,26 @@ export const DescriptionContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  ${({ theme: { colors, font } }) => `
+  ${({ theme: { colors, font, space } }) => `
     color: ${colors.purple};
     font-size: ${font.md};
-    margin-right: 20px;
-  `}
-
-  @media (max-width: 768px) {
-    margin-bottom: 8px;
-  }
+    margin-right: ${space.md};
+    
+    @media (max-width: 768px) {
+      margin-bottom: ${space.xs2};
+    }
+    `}
 `;
 
 export const DueToDateTag = styled.label`
-  ${({ theme: { colors, font, radius } }) => `
+  ${({ theme: { colors, font, radius, space } }) => `
     background-color: ${colors.ice};
     border-radius: ${radius.md};
     font-size: ${font.sm};
     color: ${colors.purple};
     font-weight: bold;
-    padding: 16px 8px;
-    margin-right: 12px;
+    padding: ${space.sm} ${space.xs2};
+    margin-right:  ${space.xs};
     height: 24px;
     display: flex;
     align-items: center;

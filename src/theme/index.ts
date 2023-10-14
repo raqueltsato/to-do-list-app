@@ -16,14 +16,23 @@ declare module "styled-components/" {
       purpleDark: string;
     };
     font: {
-      sm: string;
-      md: string;
+      sm: "12px";
+      md: "16px";
+    };
+    space: {
+      xs2: "8px";
+      xs: "12px";
+      sm: "16px";
+      md: "20px";
+      lg: "24px";
+      xl: "30px";
+      xl2: "36px";
     };
     radius: {
-      sm: string;
-      md: string;
-      lg: string;
-      circle: string;
+      sm: "2px";
+      md: "4px";
+      lg: "8px";
+      circle: "50%";
     };
   }
 }
@@ -45,6 +54,15 @@ const theme: DefaultTheme = {
   font: {
     sm: "12px",
     md: "16px",
+  },
+  space: {
+    xs2: "8px",
+    xs: "12px",
+    sm: "16px",
+    md: "20px",
+    lg: "24px",
+    xl: "30px",
+    xl2: "36px",
   },
   radius: {
     sm: "2px",

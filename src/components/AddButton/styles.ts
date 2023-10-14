@@ -2,11 +2,11 @@ import styled, { css } from "styled-components/";
 import { FaPlus } from "react-icons/fa";
 
 export const Button = styled.button<{ "data-isround": boolean }>`
-  ${({ theme: { colors, radius }, "data-isround": isRound }) => css`
+  ${({ theme: { colors, radius, space }, "data-isround": isRound }) => css`
     border: none;
     border-radius: ${isRound ? radius.circle : radius.md};
     background-color: ${colors.purple};
-    padding: 12px;
+    padding: ${space.xs};
     cursor: pointer;
 
     &:hover {

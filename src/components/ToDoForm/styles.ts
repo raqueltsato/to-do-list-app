@@ -12,10 +12,11 @@ export const ModalContainer = styled.div<{ "data-isopen": OwnProps["isOpen"] }>`
 `;
 
 export const ModalContent = styled.div`
-  ${({ theme: { colors, radius } }) => `
+  ${({ theme: { colors, radius, space } }) => `
      background: ${colors.white};
      border-radius: ${radius.lg};
      box-shadow: 0px 0px 8px 0px ${colors.shadow};
+     padding: ${space.xl};
  `}
   position: relative;
   width: 50%;
@@ -23,7 +24,6 @@ export const ModalContent = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 30px;
   display: flex;
   flex-direction: column;
 
@@ -54,37 +54,39 @@ export const CloseButton = styled.button`
 `;
 
 export const Title = styled.h2`
-  ${({ theme: { colors } }) => `
+  ${({ theme: { colors, space } }) => `
     color: ${colors.purpleDark}
+    margin: ${space.md} 0;
   `};
-  margin: 20px 0;
 `;
 
 export const InputWrapperContainer = styled.div`
+  ${({ theme: { space } }) => `
+  margin-bottom: ${space.md};
+`}
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 `;
 
 export const Label = styled.label`
-  ${({ theme: { colors } }) => `
+  ${({ theme: { colors, space } }) => `
     color: ${colors.gray};
+    margin-bottom: ${space.xs2};
      `};
-  margin-bottom: 8px;
 `;
 
 export const Input = styled.input`
-  ${({ theme: { colors, radius } }) => `
+  ${({ theme: { colors, radius, space } }) => `
     border-radius: ${radius.md};
     border: 1px solid ${colors.purple};
     background-color:${colors.babyBlue};
+    padding: 0 ${space.xs2};
+    margin-bottom: ${space.md};
   `};
 
   line-height: 170%;
   font-size: 1rem;
-  padding: 0 8px;
   outline: none;
-  margin-bottom: 20px;
 `;
 
 export const DateWrapper = styled.div`
@@ -94,15 +96,15 @@ export const DateWrapper = styled.div`
   margin-bottom: 16px;
 
   input {
-    ${({ theme: { colors, radius } }) => `
+    ${({ theme: { colors, radius, space } }) => `
       border-radius: ${radius.md};
       border: 1px solid ${colors.purple};
       background-color:${colors.babyBlue};
+      padding: 0 ${space.xs2};
     `};
 
     line-height: 170%;
     font-size: 1rem;
-    padding: 0 8px;
     outline: none;
   }
 
