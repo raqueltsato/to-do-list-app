@@ -14,7 +14,7 @@ export const ModalContainer = styled.div<{ "data-isopen": OwnProps["isOpen"] }>`
 export const ModalContent = styled.div`
   ${({ theme: { colors, radius } }) => `
      background: ${colors.white};
-     border-radius: ${radius.md};
+     border-radius: ${radius.lg};
      box-shadow: 0px 0px 8px 0px ${colors.shadow};
  `}
   position: relative;
@@ -26,6 +26,10 @@ export const ModalContent = styled.div`
   padding: 30px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 export const CloseButton = styled.button`

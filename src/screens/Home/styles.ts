@@ -19,6 +19,6 @@ export const Container = styled.div`
 
 export const ButtonContainer = styled.div`
   position: fixed;
-  right: 60px;
-  bottom: 60px;
+  right: 8%;
+  bottom: 8%;
 `;

@@ -1,5 +1,9 @@
 import styled from "styled-components/";
 
 export const ListContainer = styled.div`
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0;
+  width: 100vw;
 `;

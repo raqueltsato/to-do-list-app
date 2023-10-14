@@ -7,11 +7,15 @@ export const CardContainer = styled.div`
     box-shadow: 0px 0px 8px 0px ${colors.shadow};
     border-radius: ${radius.lg};
   `}
-  width: 700px;
+  width: 65%;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   padding: 20px 12px;
-  margin: 16px;
+  margin: 8px;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export const CheckboxContainer = styled.div`
@@ -19,10 +23,12 @@ export const CheckboxContainer = styled.div`
   display: flex;
   align-items: center;
   padding-left: 35px;
-
   cursor: pointer;
-
   width: 0;
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 export const Checkbox = styled.span`
@@ -59,6 +65,11 @@ export const DescriptionContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const Title = styled.h2`
@@ -67,6 +78,10 @@ export const Title = styled.h2`
     font-size: ${font.md};
     margin-right: 20px;
   `}
+
+  @media (max-width: 768px) {
+    margin-bottom: 8px;
+  }
 `;
 
 export const DueToDateTag = styled.label`
