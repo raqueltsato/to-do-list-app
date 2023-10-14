@@ -16,19 +16,23 @@ declare module "styled-components/" {
       purpleDark: string;
     };
     font: {
-      sm: string;
-      md: string;
+      sm: "12px";
+      md: "16px";
     };
     space: {
-      sm: string;
-      md: string;
-      lg: string;
+      xs2: "8px";
+      xs: "12px";
+      sm: "16px";
+      md: "20px";
+      lg: "24px";
+      xl: "30px";
+      xl2: "36px";
     };
     radius: {
-      sm: string;
-      md: string;
-      lg: string;
-      circle: string;
+      sm: "2px";
+      md: "4px";
+      lg: "8px";
+      circle: "50%";
     };
   }
 }
@@ -41,8 +45,8 @@ const theme: DefaultTheme = {
     gray: "#666666",
     grayTransparent: "#666666cc",
     white: "#ffffff",
-    pink: "#ffcad4",
-    lavander: "#9dd2d8",
+    pink: "#ffe5ea",
+    lavander: "#e8f8ff",
     babyBlue: " #f1f7fc",
     purple: "#aa8df7",
     purpleDark: "#b289f3",
@@ -52,9 +56,13 @@ const theme: DefaultTheme = {
     md: "16px",
   },
   space: {
+    xs2: "8px",
+    xs: "12px",
     sm: "16px",
     md: "20px",
     lg: "24px",
+    xl: "30px",
+    xl2: "36px",
   },
   radius: {
     sm: "2px",

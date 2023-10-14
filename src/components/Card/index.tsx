@@ -1,10 +1,11 @@
-import { useTranslation } from "react-i18next";
 import {
   CardContainer,
   Checkbox,
   CheckboxContainer,
   Checkmark,
+  DescriptionContainer,
   DueToDateTag,
+  Options,
   Title,
   TrashIcon,
 } from "./styles";
@@ -17,19 +18,25 @@ const CardDefault = ({
   handleRemoveToDo,
   t,
 }: OwnProps): JSX.Element => {
-  console.log("Renderizou o card", description, Date.now());
   return (
     <CardContainer key={id}>
-      <CheckboxContainer>
+      <CheckboxContainer
+        className="checkboxarea"
+        onClick={() => handleDoneToDo(id)}
+      >
         <Checkbox className="checkmark">
-          <Checkmark checked={done} onClick={() => handleDoneToDo(id)} />
+          <Checkmark checked={done} />
         </Checkbox>
       </CheckboxContainer>
-      <Title>{description}</Title>
-      <DueToDateTag>
-        {new Date(dueToDate).toLocaleDateString(t("dateLocale"))}
-      </DueToDateTag>
-      <TrashIcon onClick={() => handleRemoveToDo(id)} />
+      <DescriptionContainer>
+        <Title>{description}</Title>
+        <DueToDateTag>
+          {new Date(dueToDate).toLocaleDateString(t("dateLocale"))}
+        </DueToDateTag>
+      </DescriptionContainer>
+      <Options>
+        <TrashIcon onClick={() => handleRemoveToDo(id)} />
+      </Options>
     </CardContainer>
   );
 };

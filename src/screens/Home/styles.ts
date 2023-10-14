@@ -3,7 +3,7 @@ import styled, { css } from "styled-components/";
 export const Background = styled.div`
   ${({ theme: { colors } }) => css`
     background: linear-gradient(45deg, ${colors.pink}, ${colors.lavander});
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: -1;
   `};
@@ -19,6 +19,6 @@ export const Container = styled.div`
 
 export const ButtonContainer = styled.div`
   position: fixed;
-  right: 60px;
-  bottom: 60px;
+  right: 8%;
+  bottom: 8%;
 `;
