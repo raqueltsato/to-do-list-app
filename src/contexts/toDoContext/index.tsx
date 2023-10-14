@@ -17,19 +17,19 @@ export const ToDoProvider = ({ children }: OwnProps) => {
   });
 
   const handleDoneToDo = (id: string) => {
-    const newTodos = toDos.map((toDo) => {
-      if (toDo.id === id) {
-        return { ...toDo, done: !toDo.done };
-      } else {
-        return toDo;
-      }
-    });
+    const newTodos = (prev: ToDoType[]) =>
+      prev.map((toDo) => {
+        if (toDo.id === id) {
+          return { ...toDo, done: !toDo.done };
+        } else {
+          return toDo;
+        }
+      });
     setToDos(newTodos);
   };
 
   const handleRemoveToDo = (toDoId: string) => {
-    const newTodos = toDos.filter(({ id }) => id !== toDoId);
-    setToDos(newTodos);
+    setToDos((prev) => prev.filter(({ id }) => id !== toDoId));
   };
 
   const handleAddToDo = (description: string, dueToDate: number) => {
@@ -39,7 +39,8 @@ export const ToDoProvider = ({ children }: OwnProps) => {
       dueToDate,
       done: false,
     };
-    setToDos([...toDos, newToDo]);
+
+    setToDos((prev) => [...prev, newToDo]);
   };
 
   return (
