@@ -23,7 +23,7 @@ const CardDefault = ({
   return (
     <CardContainer key={id}>
       <CheckboxContainer
-        className="checkboxarea"
+        data-testid="checkboxarea"
         onClick={() => handleEditToDo({ id, done: !done })}
       >
         <Checkbox className="checkmark">
@@ -37,8 +37,8 @@ const CardDefault = ({
         </DueToDateTag>
       </DescriptionContainer>
       <Options>
-        <EditIcon onClick={() => toggleModal(id)} />
-        <TrashIcon onClick={() => handleRemoveToDo(id)} />
+        <EditIcon data-testid="edit" onClick={() => toggleModal(id)} />
+        <TrashIcon data-testid="delete" onClick={() => handleRemoveToDo(id)} />
       </Options>
     </CardContainer>
   );
