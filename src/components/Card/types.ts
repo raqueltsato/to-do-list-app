@@ -3,7 +3,8 @@ import { ToDoType } from "../../contexts/toDoContext/types";
 
 export type OwnProps = {
   toDo: ToDoType;
-  handleDoneToDo: (id: string) => void;
+  handleEditToDo: (toDo: Partial<ToDoType>) => void;
   handleRemoveToDo: (id: string) => void;
+  toggleModal: (id?: string) => void;
   t: TFunction<"locale", undefined>;
 };

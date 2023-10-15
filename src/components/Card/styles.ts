@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
 
 export const CardContainer = styled.div`
   ${({ theme: { colors, radius, space } }) => `
@@ -98,7 +98,7 @@ export const DueToDateTag = styled.label`
     color: ${colors.purple};
     font-weight: bold;
     padding: ${space.sm} ${space.xs2};
-    margin-right:  ${space.xs};
+    margin-right:  ${space.md};
     height: 24px;
     display: flex;
     align-items: center;
@@ -108,14 +108,29 @@ export const DueToDateTag = styled.label`
 
 export const Options = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const TrashIcon = styled(FaTrashAlt)`
   ${({ theme: { colors } }) => `
     color: ${colors.purple};
   `}
-  height:30px;
+  height:20px;
+  width: 20px;
+  cursor: pointer;
+`;
+
+export const EditIcon = styled(FaEdit)`
+  ${({ theme: { colors } }) => `
+    color: ${colors.purple};
+  `}
+  height:20px;
+  width: 20px;
   cursor: pointer;
 `;

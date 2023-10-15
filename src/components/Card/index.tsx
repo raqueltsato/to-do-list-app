@@ -1,3 +1,4 @@
+import React from "react";
 import {
   CardContainer,
   Checkbox,
@@ -5,24 +6,25 @@ import {
   Checkmark,
   DescriptionContainer,
   DueToDateTag,
+  EditIcon,
   Options,
   Title,
   TrashIcon,
 } from "./styles";
 import { OwnProps } from "./types";
-import React from "react";
 
 const CardDefault = ({
   toDo: { id, description, dueToDate, done },
-  handleDoneToDo,
+  handleEditToDo,
   handleRemoveToDo,
+  toggleModal,
   t,
 }: OwnProps): JSX.Element => {
   return (
     <CardContainer key={id}>
       <CheckboxContainer
         className="checkboxarea"
-        onClick={() => handleDoneToDo(id)}
+        onClick={() => handleEditToDo({ id, done: !done })}
       >
         <Checkbox className="checkmark">
           <Checkmark checked={done} />
@@ -35,6 +37,7 @@ const CardDefault = ({
         </DueToDateTag>
       </DescriptionContainer>
       <Options>
+        <EditIcon onClick={() => toggleModal(id)} />
         <TrashIcon onClick={() => handleRemoveToDo(id)} />
       </Options>
     </CardContainer>
