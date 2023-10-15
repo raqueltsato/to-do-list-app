@@ -11,6 +11,7 @@ export const ToDoProvider = ({ children }: OwnProps) => {
   const [toDos, setToDos] = useState<ToDoType[]>(
     JSON.parse(localStorage.getItem("toDos") as string) || []
   );
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useDebounce(() => {
     localStorage.setItem("toDos", JSON.stringify(toDos));
@@ -45,7 +46,14 @@ export const ToDoProvider = ({ children }: OwnProps) => {
 
   return (
     <ToDoContext.Provider
-      value={{ toDos, handleDoneToDo, handleRemoveToDo, handleAddToDo }}
+      value={{
+        toDos,
+        isModalOpen,
+        toggleModal: () => setIsModalOpen(!isModalOpen),
+        handleDoneToDo,
+        handleRemoveToDo,
+        handleAddToDo,
+      }}
     >
       {children}
     </ToDoContext.Provider>
