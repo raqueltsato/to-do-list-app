@@ -6,17 +6,17 @@ import { ToDoList } from "../../components/ToDoList";
 import { ToDoContext } from "../../contexts/toDoContext";
 
 const Home = (): React.ReactNode => {
-  const { isModalOpen, toggleModal } = useContext(ToDoContext);
+  const { modal, toggleModal } = useContext(ToDoContext);
 
   return (
     <>
       <Background />
       <Container>
         <ToDoList />
-        <ToDoModal isOpen={isModalOpen} onClose={toggleModal} />
+        <ToDoModal isOpen={modal.isOpen} />
 
         <ButtonContainer>
-          <AddButton onClick={toggleModal} />
+          <AddButton onClick={() => toggleModal()} />
         </ButtonContainer>
       </Container>
     </>

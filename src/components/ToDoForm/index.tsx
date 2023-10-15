@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import DatePicker, { registerLocale } from "react-datepicker";
@@ -21,21 +21,47 @@ import { ToDoContext } from "../../contexts/toDoContext";
 
 registerLocale("ptBR", ptBR);
 
-export const ToDoModal = ({ isOpen, onClose }: OwnProps) => {
-  const { handleAddToDo } = useContext(ToDoContext);
+export const ToDoModal = ({ isOpen }: OwnProps) => {
+  const {
+    modal: { toDoId },
+    handleAddToDo,
+    handleEditToDo,
+    getToDo,
+    toggleModal,
+  } = useContext(ToDoContext);
 
   const [dueToDate, setDueToDate] = useState<number>(Date.now());
   const [description, setDescription] = useState("");
 
-  const handleSubmit = () => {
-    handleAddToDo(description, dueToDate);
+  const resetModal = () => {
     setDescription("");
+    setDueToDate(Date.now());
+  };
+
+  const handleSubmit = () => {
+    if (toDoId) {
+      handleEditToDo(toDoId, description, dueToDate);
+      toggleModal();
+    } else {
+      handleAddToDo(description, dueToDate);
+    }
+    resetModal();
   };
 
   const handleCloseModal = () => {
-    onClose();
-    setDescription("");
+    toggleModal();
+    resetModal();
   };
+
+  useEffect(() => {
+    if (toDoId) {
+      const toDo = getToDo(toDoId);
+      if (toDo) {
+        setDueToDate(toDo.dueToDate);
+        setDescription(toDo.description);
+      }
+    }
+  }, [toDoId]);
 
   const { t } = useTranslation("form");
   return (
@@ -44,7 +70,7 @@ export const ToDoModal = ({ isOpen, onClose }: OwnProps) => {
         <CloseButton onClick={handleCloseModal}>
           <FaRegTimesCircle />
         </CloseButton>
-        <Title>{t("title")}</Title>
+        <Title>{toDoId ? t("titleEdit") : t("title")}</Title>
         <InputWrapperContainer>
           <Label>{t("dueToDate")}</Label>
           <DateWrapper>
@@ -61,7 +87,10 @@ export const ToDoModal = ({ isOpen, onClose }: OwnProps) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </InputWrapperContainer>
-        <AddButton name={t("submit")} onClick={handleSubmit} />
+        <AddButton
+          name={toDoId ? t("edit") : t("submit")}
+          onClick={handleSubmit}
+        />
       </ModalContent>
     </ModalContainer>
   );

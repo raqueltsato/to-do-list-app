@@ -9,11 +9,18 @@ export type ToDoType = {
   done: boolean;
 };
 
+export type ModalType = {
+  isOpen: boolean;
+  toDoId?: string;
+};
+
 export interface ToDoContextType {
   toDos: ToDoType[];
-  isModalOpen: boolean;
-  toggleModal: () => void;
+  modal: ModalType;
+  toggleModal: (id?: string) => void;
   handleDoneToDo: (id: string) => void;
   handleRemoveToDo: (id: string) => void;
   handleAddToDo: (description: string, dueToDate: number) => void;
+  getToDo: (id: string) => ToDoType | undefined;
+  handleEditToDo: (id: string, description: string, dueToDate: number) => void;
 }

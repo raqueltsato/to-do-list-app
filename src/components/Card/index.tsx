@@ -1,3 +1,5 @@
+import React, { useContext } from "react";
+import { ToDoContext } from "../../contexts/toDoContext";
 import {
   CardContainer,
   Checkbox,
@@ -11,7 +13,6 @@ import {
   TrashIcon,
 } from "./styles";
 import { OwnProps } from "./types";
-import React from "react";
 
 const CardDefault = ({
   toDo: { id, description, dueToDate, done },
@@ -19,6 +20,8 @@ const CardDefault = ({
   handleRemoveToDo,
   t,
 }: OwnProps): JSX.Element => {
+  const { toggleModal } = useContext(ToDoContext);
+
   return (
     <CardContainer key={id}>
       <CheckboxContainer
@@ -36,7 +39,7 @@ const CardDefault = ({
         </DueToDateTag>
       </DescriptionContainer>
       <Options>
-        <EditIcon />
+        <EditIcon onClick={() => toggleModal(id)} />
         <TrashIcon onClick={() => handleRemoveToDo(id)} />
       </Options>
     </CardContainer>
