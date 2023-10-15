@@ -11,4 +11,7 @@ export default {
   locale: {
     dateLocale: "pt-br",
   },
+  list: {
+    emptyList: "Não há tarefas cadastradas.",
+  },
 };
