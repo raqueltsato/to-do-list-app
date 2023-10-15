@@ -5,6 +5,7 @@ import {
   Checkmark,
   DescriptionContainer,
   DueToDateTag,
+  EditIcon,
   Options,
   Title,
   TrashIcon,
@@ -35,6 +36,7 @@ const CardDefault = ({
         </DueToDateTag>
       </DescriptionContainer>
       <Options>
+        <EditIcon />
         <TrashIcon onClick={() => handleRemoveToDo(id)} />
       </Options>
     </CardContainer>
