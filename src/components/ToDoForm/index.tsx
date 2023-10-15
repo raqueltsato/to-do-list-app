@@ -40,7 +40,7 @@ export const ToDoModal = ({ isOpen }: OwnProps) => {
 
   const handleSubmit = () => {
     if (toDoId) {
-      handleEditToDo(toDoId, description, dueToDate);
+      handleEditToDo({ id: toDoId, description, dueToDate });
       toggleModal();
     } else {
       handleAddToDo(description, dueToDate);

@@ -25,19 +25,6 @@ export const ToDoProvider = ({ children }: OwnProps) => {
     });
   };
 
-  const handleDoneToDo = (id: string) => {
-    const newTodos = (prev: ToDoType[]) =>
-      prev.map((toDo) => {
-        if (toDo.id === id) {
-          return { ...toDo, done: !toDo.done };
-        } else {
-          return toDo;
-        }
-      });
-
-    setToDos(newTodos);
-  };
-
   const handleRemoveToDo = (toDoId: string) => {
     setToDos((prev) => prev.filter(({ id }) => id !== toDoId));
   };
@@ -57,17 +44,13 @@ export const ToDoProvider = ({ children }: OwnProps) => {
     return toDos.find((toDo) => toDo.id === id);
   };
 
-  const handleEditToDo = (
-    id: string,
-    description: string,
-    dueToDate: number
-  ) => {
+  const handleEditToDo = (toDo: Partial<ToDoType>) => {
     const newTodos = (prev: ToDoType[]) =>
-      prev.map((toDo) => {
-        if (toDo.id === id) {
-          return { ...toDo, description, dueToDate };
+      prev.map((prevToDo) => {
+        if (prevToDo.id === toDo.id) {
+          return { ...prevToDo, ...toDo };
         } else {
-          return toDo;
+          return prevToDo;
         }
       });
 
@@ -80,7 +63,6 @@ export const ToDoProvider = ({ children }: OwnProps) => {
         toDos,
         modal,
         toggleModal,
-        handleDoneToDo,
         handleRemoveToDo,
         handleAddToDo,
         getToDo,

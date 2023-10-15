@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { ToDoContext } from "../../contexts/toDoContext";
+import React from "react";
 import {
   CardContainer,
   Checkbox,
@@ -16,17 +15,16 @@ import { OwnProps } from "./types";
 
 const CardDefault = ({
   toDo: { id, description, dueToDate, done },
-  handleDoneToDo,
+  handleEditToDo,
   handleRemoveToDo,
+  toggleModal,
   t,
 }: OwnProps): JSX.Element => {
-  const { toggleModal } = useContext(ToDoContext);
-
   return (
     <CardContainer key={id}>
       <CheckboxContainer
         className="checkboxarea"
-        onClick={() => handleDoneToDo(id)}
+        onClick={() => handleEditToDo({ id, done: !done })}
       >
         <Checkbox className="checkmark">
           <Checkmark checked={done} />

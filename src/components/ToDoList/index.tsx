@@ -5,7 +5,8 @@ import { Card } from "../Card";
 import { ListContainer } from "./styles";
 
 export const ToDoList = (): React.ReactNode => {
-  const { toDos, handleDoneToDo, handleRemoveToDo } = useContext(ToDoContext);
+  const { toDos, handleEditToDo, handleRemoveToDo, toggleModal } =
+    useContext(ToDoContext);
 
   const { t } = useTranslation("locale");
 
@@ -16,8 +17,9 @@ export const ToDoList = (): React.ReactNode => {
           <Card
             key={toDo.id}
             toDo={toDo}
-            handleDoneToDo={handleDoneToDo}
+            handleEditToDo={handleEditToDo}
             handleRemoveToDo={handleRemoveToDo}
+            toggleModal={toggleModal}
             t={t}
           />
         );
