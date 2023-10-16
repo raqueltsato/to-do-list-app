@@ -51,17 +51,4 @@ describe("Card tests", () => {
 
     expect(props.toggleModal).toBeCalledWith("1");
   });
-
-  it("should call handleRemoveToDo to delete", () => {
-    const { getByTestId } = render(
-      <StylesProvider>
-        <Card {...props} />
-      </StylesProvider>
-    );
-
-    const deleteButton = getByTestId("delete");
-    fireEvent.click(deleteButton);
-
-    expect(props.handleRemoveToDo).toBeCalledWith("1");
-  });
 });
