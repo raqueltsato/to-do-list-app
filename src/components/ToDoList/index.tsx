@@ -15,7 +15,7 @@ export const ToDoList = (): React.ReactNode => {
     <ListContainer>
       {!toDos.length ? (
         <EmptyContainer>
-          <img src={empty} width="80%" />
+          <img src={empty} width="80%" data-testid="emptyimage" />
           <p>{t("list:emptyList")}</p>
         </EmptyContainer>
       ) : (

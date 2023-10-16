@@ -21,7 +21,7 @@ const CardDefault = ({
   t,
 }: OwnProps): JSX.Element => {
   return (
-    <CardContainer key={id}>
+    <CardContainer key={id} data-testid="card">
       <CheckboxContainer
         data-testid="checkboxarea"
         onClick={() => handleEditToDo({ id, done: !done })}
