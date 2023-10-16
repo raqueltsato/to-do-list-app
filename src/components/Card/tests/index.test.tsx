@@ -1,9 +1,8 @@
 import { fireEvent, render } from "@testing-library/react";
-import theme from "../../../theme";
-import { ThemeProvider } from "styled-components/";
 import { Card } from "..";
 import { toDosMock } from "../../../data";
 import { OwnProps } from "../types";
+import StylesProvider from "../../../providers";
 
 const props = {
   toDo: toDosMock[0],
@@ -16,9 +15,9 @@ const props = {
 describe("Card tests", () => {
   it("should render correctly", () => {
     const { getByText } = render(
-      <ThemeProvider theme={theme}>
+      <StylesProvider>
         <Card {...props} />
-      </ThemeProvider>
+      </StylesProvider>
     );
     const dueToDate = getByText("15/10/2023");
     const description = getByText("Ir ao mercado");
@@ -29,9 +28,9 @@ describe("Card tests", () => {
 
   it("should mark as done", () => {
     const { getByTestId } = render(
-      <ThemeProvider theme={theme}>
+      <StylesProvider>
         <Card {...props} />
-      </ThemeProvider>
+      </StylesProvider>
     );
 
     const checkBox = getByTestId("checkboxarea");
@@ -42,9 +41,9 @@ describe("Card tests", () => {
 
   it("should call toggleModal to edit", () => {
     const { getByTestId } = render(
-      <ThemeProvider theme={theme}>
+      <StylesProvider>
         <Card {...props} />
-      </ThemeProvider>
+      </StylesProvider>
     );
 
     const editButton = getByTestId("edit");
@@ -55,9 +54,9 @@ describe("Card tests", () => {
 
   it("should call handleRemoveToDo to delete", () => {
     const { getByTestId } = render(
-      <ThemeProvider theme={theme}>
+      <StylesProvider>
         <Card {...props} />
-      </ThemeProvider>
+      </StylesProvider>
     );
 
     const deleteButton = getByTestId("delete");

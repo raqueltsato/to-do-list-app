@@ -1,16 +1,15 @@
 import { fireEvent, render } from "@testing-library/react";
 import AddButton from "..";
-import theme from "../../../theme";
-import { ThemeProvider } from "styled-components/";
+import StylesProvider from "../../../providers";
 
 const onChangeEvent = jest.fn();
 
 describe("Button tests", () => {
   it("should call onChange when button is clicked", () => {
     const { getByRole } = render(
-      <ThemeProvider theme={theme}>
+      <StylesProvider>
         <AddButton onClick={onChangeEvent} />
-      </ThemeProvider>
+      </StylesProvider>
     );
 
     const buttonElement = getByRole("button");
@@ -20,9 +19,9 @@ describe("Button tests", () => {
 
   it("should have button description", () => {
     const { getByText } = render(
-      <ThemeProvider theme={theme}>
+      <StylesProvider>
         <AddButton onClick={onChangeEvent} name="Cadastrar" />
-      </ThemeProvider>
+      </StylesProvider>
     );
 
     const buttonElement = getByText("Cadastrar");
