@@ -19,9 +19,8 @@ import { OwnProps } from "./types";
 import AddButton from "../AddButton";
 import { ToDoContext } from "../../contexts/toDoContext";
 
-registerLocale("ptBR", ptBR);
-
 export const ToDoModal = ({ isOpen }: OwnProps) => {
+  registerLocale("ptBR", ptBR);
   const {
     modal: { toDoId },
     handleAddToDo,
@@ -29,6 +28,8 @@ export const ToDoModal = ({ isOpen }: OwnProps) => {
     getToDo,
     toggleModal,
   } = useContext(ToDoContext);
+
+  const { t } = useTranslation("form");
 
   const [dueToDate, setDueToDate] = useState<number>(Date.now());
   const [description, setDescription] = useState("");
@@ -63,11 +64,10 @@ export const ToDoModal = ({ isOpen }: OwnProps) => {
     }
   }, [toDoId]);
 
-  const { t } = useTranslation("form");
   return (
-    <ModalContainer data-isopen={isOpen}>
+    <ModalContainer data-testid="togglemodal" data-isopen={isOpen}>
       <ModalContent>
-        <CloseButton onClick={handleCloseModal}>
+        <CloseButton data-testid="closebutton" onClick={handleCloseModal}>
           <FaRegTimesCircle />
         </CloseButton>
         <Title>{toDoId ? t("titleEdit") : t("title")}</Title>
@@ -75,6 +75,8 @@ export const ToDoModal = ({ isOpen }: OwnProps) => {
           <Label>{t("dueToDate")}</Label>
           <DateWrapper>
             <DatePicker
+              data-testid="date"
+              className="date-picker"
               locale="ptBR"
               selected={new Date(dueToDate)}
               onChange={(date: Date) => setDueToDate(date.getTime())}
@@ -83,6 +85,7 @@ export const ToDoModal = ({ isOpen }: OwnProps) => {
           </DateWrapper>
           <Label>{t("description")}</Label>
           <Input
+            data-testid="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />

@@ -16,7 +16,7 @@ const Home = (): React.ReactNode => {
         <ToDoModal isOpen={modal.isOpen} />
 
         <ButtonContainer>
-          <AddButton onClick={() => toggleModal()} />
+          <AddButton data-testid="addbutton" onClick={() => toggleModal()} />
         </ButtonContainer>
       </Container>
     </>
