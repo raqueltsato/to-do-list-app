@@ -69,7 +69,6 @@ describe("ToDoModal tests", () => {
     const [deleteButton] = wrapper.getAllByTestId("delete");
 
     fireEvent.click(deleteButton);
-    jest.advanceTimersByTime(1000);
 
     const cards = wrapper.getAllByTestId("card");
 

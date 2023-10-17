@@ -55,7 +55,7 @@ export const CloseButton = styled.button`
 
 export const Title = styled.h2`
   ${({ theme: { colors, space } }) => `
-    color: ${colors.purpleDark}
+    color: ${colors.purpleDark};
     margin: ${space.md} 0;
   `};
 `;
