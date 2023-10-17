@@ -2,8 +2,11 @@
 
 Este projeto é uma aplicação em React com Vite que permite cadastrar, listar, editar, excluir, marcar as tarefas como concluídas e salvar no localStorage.
 
+## Acessar o projeto
+Você pode clicar [aqui](https://to-do-list-app-one-delta.vercel.app/) para acessar a página do projeto.
 
-## Tecnologias utilizadas:
+
+## Tecnologias utilizadas
 - `React com Vite`
 - `TypeScript`
 - `Context API`
