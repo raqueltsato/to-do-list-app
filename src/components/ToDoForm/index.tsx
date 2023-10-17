@@ -93,6 +93,7 @@ export const ToDoModal = ({ isOpen }: OwnProps) => {
         <AddButton
           name={toDoId ? t("edit") : t("submit")}
           onClick={handleSubmit}
+          disabled={!description.trim()}
         />
       </ModalContent>
     </ModalContainer>

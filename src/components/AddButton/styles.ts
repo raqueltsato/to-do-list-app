@@ -1,16 +1,24 @@
 import styled, { css } from "styled-components/";
 import { FaPlus } from "react-icons/fa";
+import { OwnProps } from "./types";
 
-export const Button = styled.button<{ "data-isround": boolean }>`
-  ${({ theme: { colors, radius, space }, "data-isround": isRound }) => css`
+export const Button = styled.button<{
+  "data-isround": boolean;
+  disabled: OwnProps["disabled"];
+}>`
+  ${({
+    theme: { colors, radius, space },
+    "data-isround": isRound,
+    disabled,
+  }) => css`
     border: none;
     border-radius: ${isRound ? radius.circle : radius.md};
-    background-color: ${colors.purple};
+    background-color: ${disabled ? colors.ice : colors.purple};
     padding: ${space.xs};
     cursor: pointer;
 
     &:hover {
-      background-color: ${colors.purpleDark};
+      background-color: ${disabled ? colors.ice : colors.purpleDark};
     }
   `}
   display: flex;
