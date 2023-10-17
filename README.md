@@ -1,27 +1,62 @@
-# React + TypeScript + Vite
+# To Do List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação em React com Vite que permite cadastrar, listar, editar, excluir, marcar as tarefas como concluídas e salvar no localStorage.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias utilizadas:
+- `React com Vite`
+- `TypeScript`
+- `Context API`
+- `Styled-Components`
+-  `Jest`
+- `Testing Library`
+- `i18next`
 
-## Expanding the ESLint configuration
+## Técnicas Implementadas
+- `Debounce:` Para reduzir a frequência de atualizações no localStorage.
+- `Memo`: Para otimizar componentes que não precisam ser renderizados com frequência.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Automação no GitHub Actions
+- Incremento automático de versão: Sempre que um novo código é mesclado em main, a versão do aplicativo é incrementada automaticamente.
+- Versionamento Semântico: As versões são determinadas com base nas labels aplicadas aos Pull Requests, seguindo as práticas de versionamento semântico (`major`, `minor`, `patch`).
+- Test Coverage em PRs: Ao abrir um pull request, o GitHub Actions executa testes e relata a cobertura de testes.
 
-- Configure the top-level `parserOptions` property like this:
+## Como rodar o projeto localmente
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+Clone o repositório:
+
+```sh
+git clone git@github.com:raqueltsato/to-do-list-app.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Navegue até o projeto:
+```sh
+cd to-do-list-app
+```
+
+Instale as dependências:
+```sh
+yarn
+```
+
+Execute a aplicação localmente:
+```sh
+yarn dev
+```
+A aplicação estará disponível em: [http://localhost:5173/](http://localhost:5173/)
+
+Ou para expor na rede:
+```sh
+yarn dev --host
+```
+
+## Demonstração  do projeto
+
+### Desktop
+https://github.com/raqueltsato/to-do-list-app/assets/37277518/64e73057-32e0-4c52-bb87-546e1763c916
+
+### Mobile
+
+https://github.com/raqueltsato/to-do-list-app/assets/37277518/93f19f3a-d773-458a-816a-992459fc4dbe
+
+
