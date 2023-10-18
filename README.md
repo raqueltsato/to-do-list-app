@@ -56,10 +56,12 @@ yarn dev --host
 ## Demonstração  do projeto
 
 ### Desktop
-https://github.com/raqueltsato/to-do-list-app/assets/37277518/64e73057-32e0-4c52-bb87-546e1763c916
+https://github.com/raqueltsato/to-do-list-app/assets/37277518/4941e534-bb6a-4fa4-a925-57e426f893df
+
+
 
 ### Mobile
+https://github.com/raqueltsato/to-do-list-app/assets/37277518/f300379b-141e-4a69-9136-577937a56c2a
 
-https://github.com/raqueltsato/to-do-list-app/assets/37277518/93f19f3a-d773-458a-816a-992459fc4dbe
 
 
